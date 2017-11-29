@@ -11,7 +11,7 @@ $username = $argv[1];
 $passlist = $argv[2];
 $proxies = $argv[3];
 
-/* Check if the right shit was entered */
+/* Check if the right parameters was entered */
 if ($username == null || $passlist == null || $proxies == null) {
 	exit("\n\033[31m[!] \033[0mUsage: php script.php username pass.txt proxies.txt \n\n");
 }
@@ -127,7 +127,7 @@ foreach ($passwords as $password) {
 			echo "\n\033[32m[Success!]\033[0m Account Hacked [Username: \033[36m$username \033[0m| Password: \033[36m$password\033[0m] \n\n"; // success! :D
 			exit("Was this tool useful? Donate Some Bitcoin if you think I deserve: \n\033[36m1F9GbhE44FCHZ5KzcZBrDiFQYumYapxotC\033[0m \n\n");
 		} else {
-			echo "\033[31m[!]\033[0m Password Incorret [$password] \n";
+			echo "\033[31m[!]\033[0m Password Incorrect [$password] \n";
 		}
 	
 		unlink("cookie.txt"); // remove the old cookie.
