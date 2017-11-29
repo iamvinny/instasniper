@@ -1,5 +1,7 @@
 # instasniper
 
-![Screenshot of the Script](https://i.imgur.com/7nCX4VQ.png)
+<p align="center">
+	<img src="https://i.imgur.com/cPRcBpD.png">
+</p>
 
 Usage: php script.php username pass.txt proxies.txt
