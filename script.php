@@ -4,7 +4,7 @@ error_reporting(0); // disable error reporting.
 
 system('clear'); // clear the terminal.
 
-echo "\033[32m[---------------------------------------]\n[ Instagram BruteForce v1.0 \033[0m By: Vinny!\033[32m ]\n\033[32m[---------------------------------------]\n\033[0m"; // author credits - do not remove!
+echo "\033[32m[---------------------------------------]\n[ Instagram BruteForce v1.1 \033[0m By: Vinny!\033[32m ]\n\033[32m[---------------------------------------]\n\033[0m"; // author credits - do not remove!
 
 /* Take arguments from terminal */
 $username = $argv[1];
