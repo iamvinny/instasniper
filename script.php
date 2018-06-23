@@ -24,7 +24,7 @@ $passwords = explode ("\n", $pass_get); // explode passwords to work with each l
 $proxies = file($proxies);
 
 /* Check if username is registered on instagram */
-$getuser = file_get_contents("https://www.instagram.com/$username/?__a=1");
+$getuser = file_get_contents("https://www.instagram.com/$username/");
 $response_cod = $http_response_header[0];
 $response_cod == "HTTP/1.1 404 Not Found" ? exit("\n\033[31m[!] \033[0mThe username [$username] is not registered on Instagram! \n\n") : '';
 
